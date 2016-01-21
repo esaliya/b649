@@ -1,4 +1,4 @@
-package edu.indiana.cs.b649.wc.threaded;
+package edu.indiana.cs.b649.wc.parallel;
 
 import java.util.ArrayList;
 import java.util.Hashtable;

@@ -1,4 +1,4 @@
-package edu.indiana.cs.b649.wc.threaded;
+package edu.indiana.cs.b649.wc.parallel;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.regex.Pattern;
 
 public class ParallelWordCount {
     public static void main(String[] args) throws InterruptedException {
