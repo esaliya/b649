@@ -26,7 +26,7 @@ public class BasicStatistics {
         @Override
         protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
             double v = Double.parseDouble(value.toString());
-            context.write(k, new PartialData());
+            context.write(k, new PartialData(v, v, v, v*v, 1));
         }
     }
 
