@@ -99,7 +99,7 @@ public class BasicStatistics {
         job.setReducerClass(Reduce.class);
 
         // uncomment the following line to add the Combiner
-        job.setCombinerClass(Reduce.class);
+        job.setCombinerClass(Combiner.class);
 
 
         // set output key type
