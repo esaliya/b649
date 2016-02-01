@@ -79,8 +79,8 @@ public class BasicStatistics {
             std = Math.sqrt((sqSum / count) -(average*average));
             context.write(new Text("Min"), new DoubleWritable(min));
             context.write(new Text("Max"), new DoubleWritable(max));
-            context.write(new Text("Ave"), new DoubleWritable(Double.parseDouble(aveFormat.format(average))));
-            context.write(new Text("Std"), new DoubleWritable(Double.parseDouble(stdFormat.format(std))));
+            context.write(new Text("Ave"), new DoubleWritable(average));
+            context.write(new Text("Std"), new DoubleWritable(std));
         }
     }
 
