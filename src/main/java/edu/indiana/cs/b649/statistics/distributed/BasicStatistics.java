@@ -55,9 +55,6 @@ public class BasicStatistics {
 
     public static class Reduce extends Reducer<Text, PartialData, Text, DoubleWritable> {
 
-        DecimalFormat aveFormat = new DecimalFormat("#.##");
-        DecimalFormat stdFormat = new DecimalFormat("#.####");
-
         @Override
         protected void reduce(Text key, Iterable<PartialData> values, Context context) throws IOException, InterruptedException {
             double min = Double.MAX_VALUE;
