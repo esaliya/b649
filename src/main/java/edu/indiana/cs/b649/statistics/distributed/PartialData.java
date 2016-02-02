@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class PartialData implements Writable, Serializable{
     double partialMin, partialMax, partialSum, partialSqSum;
     int partialCount;
+	public PartialData(){}
 
     public PartialData(
         double partialMin, double partialMax, double partialSum,

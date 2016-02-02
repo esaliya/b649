@@ -96,7 +96,8 @@ public class BasicStatistics {
         // set output key type
         job.setOutputKeyClass(Text.class);
         // set output value type
-        job.setOutputValueClass(PartialData.class);
+        job.setOutputValueClass(DoubleWritable.class);
+        job.setMapOutputValueClass(PartialData.class);
         //set the HDFS path of the input data
         FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
         // set the HDFS path for the output
