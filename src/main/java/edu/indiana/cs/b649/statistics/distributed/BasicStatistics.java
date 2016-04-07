@@ -17,10 +17,19 @@ public class BasicStatistics {
     private static Text k = new Text("k");
 
     public static class Map extends Mapper<LongWritable, Text, Text, PartialData> {
+        double partialSum = 0.0, min= Double.MAX_VALUE;
         @Override
         protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
             double v = Double.parseDouble(value.toString());
-            context.write(k, new PartialData(v, v, v, v*v, 1));
+//            context.write(k, new PartialData(v, v, v, v*v, 1));
+            partialSum+=v;
+            min = Math.min(v, min);
+        }
+
+        @Override
+        protected void cleanup(
+            Context context) throws IOException, InterruptedException {
+            context.write(k, new PartialData());
         }
     }
 
