@@ -100,10 +100,10 @@ public class PageRankWorker implements Runnable {
     public void run() {
         loadPartialGraph();
         computeInitialPageRanks();
-        comm.allGather();
+        currentPRTable = comm.allGather(currentPRTable);
         for (int i = 0; i < numIterations; ++i) {
             computePageRank();
-            comm.allReduce();
+            finalPRTable = comm.allReduce(finalPRTable);
             currentPRTable = finalPRTable;
             finalPRTable = new TreeMap<>();
         }
