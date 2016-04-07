@@ -1,11 +1,15 @@
 package edu.indiana.cs.b649.pagerank.parallel;
 
 public class Communicator {
-    public void allGather() {
+    public synchronized void allGather() {
 
     }
 
-    public void allReduce(){
+    public synchronized void allReduce(){
+
+    }
+
+    public void barrier(){
 
     }
 }
