@@ -104,6 +104,7 @@ public class PageRankWorker implements Runnable {
         for (int i = 0; i < numIterations; ++i) {
             computePageRank();
             finalPRTable = comm.allReduce(finalPRTable);
+            scaleByDampingFactor();
             currentPRTable = finalPRTable;
             finalPRTable = new TreeMap<>();
         }
@@ -112,6 +113,16 @@ public class PageRankWorker implements Runnable {
             printFinalPageRanks();
         }
 
+    }
+
+    private void scaleByDampingFactor() {
+        for (Map.Entry<Integer, Double> entry : finalPRTable.entrySet()) {
+            int sourceUrl = entry.getKey();
+            double pr = entry.getValue();
+
+            pr = 0.85*pr+0.15*(1.0)/(double)numUrls;
+            finalPRTable.put(sourceUrl, pr);
+        }
     }
 
     private void printFinalPageRanks() {

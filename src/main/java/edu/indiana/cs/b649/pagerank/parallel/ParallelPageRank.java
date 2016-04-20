@@ -13,7 +13,5 @@ public class ParallelPageRank {
             workers[i] = new PageRankWorker(numUrls, i, inputDirectory, numIterations, comm);
             new Thread(workers[i]).start();
         }
-
-
     }
 }
