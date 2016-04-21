@@ -32,7 +32,6 @@ public class Communicator {
                 globalPRTable.put(sourceUrl, pr);
             }
         }
-        isDirty =
 
     }
 
